@@ -1,12 +1,21 @@
 from matplotlib import pyplot as plt
+import seaborn as sns
+import random
 import numpy as np
 if __name__ == '__main__':
-    x = (np.linspace(0, 10, 1000))
-    print(x)
-    y =  np.sin(x)
-    print(y)
-    plt.plot(x, y);
+    ls = [np.round(10 * (random.random())) for x in range(10)]
 
+    y = np.sin(ls)
+    z = np.cos(ls)
+    sns.set_style('whitegrid')
+    plt.figure(figsize=(12, 6))
+    plt.plot(ls, y, marker='o', c='b', ls='-', lw=2, ms=8, mew=5, mec='navy', alpha=1);
+    plt.plot(ls, z, marker='o', c='r', ms=8, mew=5);
+    plt.xlabel('list of values')
+    plt.ylabel('sin (list of values)')
+    plt.ylabel('cos (list of values)')
+    plt.title('Graph practice')
+    plt.legend(['sin (list of values)', 'cos (list of values)'])
 
 """
 Data Visualization is a graphical representation of data .It includes images to communicate relationships among the 
@@ -30,5 +39,8 @@ plt.plot() also contain following parameters for styling and marker and any othe
 
 Shortly we can also add arguments shortly like:
     <[marker]><[line]><[color]>
+    o-r
+    o--r
+    or
  
 """
