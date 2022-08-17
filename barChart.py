@@ -8,7 +8,8 @@ if __name__ == '__main__':
     ls1 = np.arange(1, 10)
     ls1 = np.random.permutation(ls1)
 
-    ## Simple bar charts
+    ##  Simple bar charts
+
     plt.bar(ls, num)
     plt.bar(ls1, num)
     plt.bar(ls, num)
@@ -16,9 +17,13 @@ if __name__ == '__main__':
     plt.plot(ls1, num, 'o--r')
     plt.legend(['ls', 'ls1'])
 
-    ##Bar Charts of mean values
+    ##   Bar Charts of mean values
+
     tips_df = sns.load_dataset('tips')
     avg_bill_df = days = tips_df.groupby('day')[['total_bill']].sum()
     plt.bar(avg_bill_df.index, avg_bill_df.total_bill)
     plt.plot(avg_bill_df.index, avg_bill_df.total_bill, 'o--r')
-    
+
+    ##sns.barplot() will automatically calculate the mean of values.
+
+    sns.barplot('day', 'total_bill', data=tips_df)
