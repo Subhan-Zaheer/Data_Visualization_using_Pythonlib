@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+import matplotlib as mpl
 import seaborn as sns
 import random
 import numpy as np
@@ -8,6 +9,7 @@ if __name__ == '__main__':
     y = np.sin(ls)
     z = np.cos(ls)
     sns.set_style('whitegrid')
+    mpl.rcParams['font.size']=14
     plt.figure(figsize=(12, 6))
     plt.plot(ls, y, marker='o', c='b', ls='-', lw=2, ms=8, mew=5, mec='navy', alpha=1);
     plt.plot(ls, z, marker='o', c='r', ms=8, mew=5);
@@ -42,5 +44,6 @@ Shortly we can also add arguments shortly like:
     o-r
     o--r
     or
+matplotlib have a module rcParams where you can format the graph according to your requirements.
  
 """
